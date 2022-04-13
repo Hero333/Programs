@@ -1,5 +1,5 @@
 #!usr/bin/env python
-#All code was taught by ZSeurity
+#unsure if this runs with out error
 #to run do use argument -t (target ip)
 
 import scapy.all as scapy

@@ -17,4 +17,4 @@ if checkControls == "2":
         print("Unknown: YOU HAVE TO BE!!!")
         time.sleep(2)
         print("Unknown: Sorry I was over reacting")
-        print("Unknown: I'm just going to asume you understand")
+        print("Unknown: I'm just going to assume you understand")

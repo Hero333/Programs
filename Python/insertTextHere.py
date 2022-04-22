@@ -1,7 +1,11 @@
 #! usr/bin/env python
 # Format may look weird as it is programed in an online IDE
-# Hours spent on program =~ 4 
+# Hours spent on program =~ 4.5
+import time
 checkPoint = 0
+magicUnlock = "False"
+
+def combat(mName, mStrength, mResistance, m)
 
 def stats(points):
 
@@ -28,6 +32,7 @@ def stats(points):
         str(language)) 
         print("-------------------\n")
         pointsUseable = points - pointsSpent
+        print("You have " + str(pointsUseable) + " points")
         spend = input("What would you like to add a point to? Or use 6 to leave\n1: Strength\n2: Resistance \n3: #####\n4: agility\n5: language\n6: Leave\nYou: ")
         if spend == "1":
             if pointsUseable >= 1:
@@ -44,12 +49,18 @@ def stats(points):
                 print("You do not have enough points for this")
                 break
         if spend == "3":
-            if pointsUseable >= 1:
-                magic = magic + 1
-                pointsSpent = pointsSpent + 1
+            if magicUnlock == "True":
+                if pointsUseable >= 1:
+                    magic = magic + 1
+                    pointsSpent = pointsSpent + 1
+                else:
+                    print("You do not have enough points for this")
+                    break
             else:
-                print("You do not have enough points for this")
-                break
+                time.sleep(1)
+                print("⠀")
+                print("ERROR\n")
+                
         if spend == "4":
             if pointsUseable >= 1:
                 agility = agility + 1
@@ -66,9 +77,8 @@ def stats(points):
                 break
         if spend == "6":
             break
-            
-stats(2)
-while False:
+        
+while True:
     import time,random
     if checkPoint == 0:
         print("Hello and welcome to [insert text here]")
@@ -105,9 +115,26 @@ while False:
         checkPoint = checkPoint + 1
         if checkPoint == 1:
             print("[insert text here] is a game")
+            time.sleep(2)
             print("A game in which you will find all you could want")
+            time.sleep(2)
             print("There are skills in this game")
+            time.sleep(2)
             print("As well as stats")
+            time.sleep(2)
             print("We use turn based combat")
+            time.sleep(2)
             print("As it is civilized")
+            time.sleep(1)
+            print("Here I'll show you your stats")
+            time.sleep(2)
+            print("I'll even give you some points")
+            stats(4)
+            print("If you didn't use some of those points")
+            time.sleep(1)
+            print("They are gone forever")
+            print("see")
             stats(0)
+            print("So that would suck if you didn't spend some of those")
+            time.sleep(2)
+            print("Now its time for combat!!")

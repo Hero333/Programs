@@ -1,34 +1,48 @@
 #! usr/bin/env python
 # Format may look weird as it is programed in an online IDE
-# Hours spent on program =~ 5
+# Hours spent on program =~ 4.5
 import time
 
 checkPoint = 0
 magicUnlock = "False"
 
-global strength
-global resistance
-global magic
-global agility
-global language
+strength = 0
+resistance = 0
+magic = 0
+agility = 0
+language = 0
+hitPoints = 15
 
 def combat(mName, mStrength, mResistance, mMagic, mAgility):
-
+    
+    global strength
+    global resistance
+    global magic
+    global agility
+    global language
+    global hitPoints
+    
     print("Name: " + str(mName) + "\nStrength: " + str(mStrength) + "\nResistance: " + str(mResistance) + "\nMagic: " + str(mMagic) + "\nAgility: " + str(mAgility))
 
     while True:
-        playerCombatChoice = input("What would you like to do\n1: Attack\n2: Block\n3: Dodge\n4: ")
+        if agility >= mAgility:
+            playerCombatChoice = input("What would you like to do\n1: Attack\n2: Block\n3: Dodge\n4: Talk")
+            if playerCombatChoice == 1:
+        else: 
+            
+            
 
 
 
 
 def stats(points):
 
-    strength = 0
-    resistance = 0
-    magic = 0
-    agility = 0
-    language = 0
+    global strength
+    global resistance
+    global magic
+    global agility
+    global language
+    global hitPoints
 
     # Few errors with this function
     pointsSpent = 0
@@ -87,7 +101,9 @@ def stats(points):
         if spend == "6":
             break
 
-combat("test", 5, 5, 0, 1)
+# combat("test", 5, 5, 0, 1)
+stats(1)
+stats(0)
 while False:
     import time, random
 

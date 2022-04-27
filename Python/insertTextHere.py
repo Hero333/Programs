@@ -2,38 +2,47 @@
 # Format may look weird as it is programed in an online IDE
 # Hours spent on program =~ 4.5
 import time
+
 checkPoint = 0
 magicUnlock = "False"
 
-def combat(mName, mStrength, mResistance, m)
+global strength
+global resistance
+global magic
+global agility
+global language
+
+def combat(mName, mStrength, mResistance, mMagic, mAgility):
+
+    print("Name: " + str(mName) + "\nStrength: " + str(mStrength) + "\nResistance: " + str(mResistance) + "\nMagic: " + str(mMagic) + "\nAgility: " + str(mAgility))
+
+    while True:
+        playerCombatChoice = input("What would you like to do\n1: Attack\n2: Block\n3: Dodge\n4: ")
+
+
+
 
 def stats(points):
 
-    global strength
-    global resistance
-    global magic
-    global agility
-    global language 
-    
     strength = 0
     resistance = 0
     magic = 0
     agility = 0
     language = 0
-    
+
     # Few errors with this function
-    end = True
-    pointsUsed = 0
     pointsSpent = 0
-    while end:
+    while True:
         print("Here are your stats: ")
         print("\n-------------------")
-        print("Strength : " + str(strength) + "\nResistance : " + str(resistance) + "\n##### : " + str(magic) + "\nagility: " + str(agility) + "\nlanguage: " + 
-        str(language)) 
+        print("Strength : " + str(strength) + "\nResistance : " + str(resistance) + "\n##### : " + str(
+            magic) + "\nagility: " + str(agility) + "\nlanguage: " +
+              str(language))
         print("-------------------\n")
         pointsUseable = points - pointsSpent
         print("You have " + str(pointsUseable) + " points")
-        spend = input("What would you like to add a point to? Or use 6 to leave\n1: Strength\n2: Resistance \n3: #####\n4: agility\n5: language\n6: Leave\nYou: ")
+        spend = input(
+            "What would you like to add a point to? Or use 6 to leave\n1: Strength\n2: Resistance \n3: #####\n4: agility\n5: language\n6: Leave\nYou: ")
         if spend == "1":
             if pointsUseable >= 1:
                 strength = strength + 1
@@ -60,7 +69,7 @@ def stats(points):
                 time.sleep(1)
                 print("⠀")
                 print("ERROR\n")
-                
+
         if spend == "4":
             if pointsUseable >= 1:
                 agility = agility + 1
@@ -77,15 +86,17 @@ def stats(points):
                 break
         if spend == "6":
             break
-        
-while True:
-    import time,random
+
+combat("test", 5, 5, 0, 1)
+while False:
+    import time, random
+
     if checkPoint == 0:
         print("Hello and welcome to [insert text here]")
         print("Unknown: Hello, Player")
         print("Unknown: To play this game you will be given choices you will pick \n using numbers")
         checkControls = input("Unknown: Do you under stand? \n 1: Yes\n 2: No\nYou: ")
-        
+
         if checkControls == "2":
             print("Unknown: You just used them...")
             time.sleep(2)
@@ -97,20 +108,20 @@ while True:
                 if askLieCC == "2" or "1":
                     print("Unknown: Selfish whims")
                     print("Unknown: However we can begin...")
-                    
+
             if checkLieCC == "2":
                 print("Unknown: YOU HAVE TO BE!!!")
                 time.sleep(2)
                 print("Unknown: Sorry I was over reacting")
                 print("Unknown: I'm just going to assume you understand")
                 print("Let us begin...")
-                
+
         if checkControls == "1":
             print("Unknown: Good.")
             print("Unknown: Then we can begin...")
-            
+
         checkReady = input("Unknown: Are you ready? \n 1: Yes\n 2: Yes\n You: ")
-        
+
         print("I suppose I should tell you what [insert text here] is")
         checkPoint = checkPoint + 1
         if checkPoint == 1:

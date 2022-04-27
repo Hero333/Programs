@@ -1,6 +1,6 @@
 #! usr/bin/env python
 # Format may look weird as it is programed in an online IDE
-# Hours spent on program =~ 4.5
+# Hours spent on program =~ 5
 import time
 
 checkPoint = 0

@@ -1,7 +1,6 @@
 #! usr/bin/env python
 # Format may look weird as it is programed in an online IDE
 # Hours spent on program =~ 4.5
-import time
 
 checkPoint = 0
 magicUnlock = "False"
@@ -13,25 +12,36 @@ agility = 0
 language = 0
 hitPoints = 15
 
-def combat(mName, mStrength, mResistance, mMagic, mAgility):
-    
+def mChoice():
+    choice = random.randrange(1,3)
+    if choice == 1:
+        return "attack"
+    if choice == 2:
+        return "block"
+    if choice == 3:
+        return "dodge"
+
+def combat(mName, mStrength, mResistance, mMagic, mAgility, mLanguage, mHitPoints):
+
     global strength
     global resistance
     global magic
     global agility
     global language
     global hitPoints
-    
-    print("Name: " + str(mName) + "\nStrength: " + str(mStrength) + "\nResistance: " + str(mResistance) + "\nMagic: " + str(mMagic) + "\nAgility: " + str(mAgility))
 
-    while True:
-        if agility >= mAgility:
-            playerCombatChoice = input("What would you like to do\n1: Attack\n2: Block\n3: Dodge\n4: Talk")
+    print("Name: " + str(mName) + "\nStrength: " + str(mStrength) + "\nResistance: " + str(mResistance) + "\nMagic: " + str(mMagic) + "\nAgility: " + str(mAgility) + "\nLanguage: " + str(mLanguage))
+
+    while hitPoints > 0:
+            print(str(mName) + "has " + str(mHitPoints) + " remaining")
+            print("You have " + str(hitPoints) + " remaining")
+            playerCombatChoice = input("What would you like to do\n1: Attack\n2: Block\n3: Dodge\n4: Talk\nYou: ")
             if playerCombatChoice == 1:
-        else: 
-            
-            
-
+                #if mChoice() == "attack":
+                if mStrength > strength:
+                    hitPoints = hitPoints - (mStrength - strength)
+                if mStrength < strength:
+                    mHitPoints = mHitPoints - (strength - mStrength)
 
 
 
@@ -53,19 +63,19 @@ def stats(points):
             magic) + "\nagility: " + str(agility) + "\nlanguage: " +
               str(language))
         print("-------------------\n")
-        pointsUseable = points - pointsSpent
-        print("You have " + str(pointsUseable) + " points")
+        pointsUsable = points - pointsSpent
+        print("You have " + str(pointsUsable) + " points")
         spend = input(
             "What would you like to add a point to? Or use 6 to leave\n1: Strength\n2: Resistance \n3: #####\n4: agility\n5: language\n6: Leave\nYou: ")
         if spend == "1":
-            if pointsUseable >= 1:
+            if pointsUsable >= 1:
                 strength = strength + 1
                 pointsSpent = pointsSpent + 1
             else:
                 print("You do not have enough points for this")
                 break
         if spend == "2":
-            if pointsUseable >= 1:
+            if pointsUsable >= 1:
                 resistance = resistance + 1
                 pointsSpent = pointsSpent + 1
             else:
@@ -73,7 +83,7 @@ def stats(points):
                 break
         if spend == "3":
             if magicUnlock == "True":
-                if pointsUseable >= 1:
+                if pointsUsable >= 1:
                     magic = magic + 1
                     pointsSpent = pointsSpent + 1
                 else:
@@ -85,14 +95,14 @@ def stats(points):
                 print("ERROR\n")
 
         if spend == "4":
-            if pointsUseable >= 1:
+            if pointsUsable >= 1:
                 agility = agility + 1
                 pointsSpent = pointsSpent + 1
             else:
                 print("You do not have enough points for this")
                 break
         if spend == "5":
-            if pointsUseable >= 1:
+            if pointsUsable >= 1:
                 language = language + 1
                 pointsSpent = pointsSpent + 1
             else:
@@ -100,11 +110,11 @@ def stats(points):
                 break
         if spend == "6":
             break
-
-# combat("test", 5, 5, 0, 1)
 stats(1)
-stats(0)
-while False:
+
+combat("test", 5, 5, 0, 1, "english", 100)
+
+while True:
     import time, random
 
     if checkPoint == 0:
@@ -145,13 +155,7 @@ while False:
             time.sleep(2)
             print("A game in which you will find all you could want")
             time.sleep(2)
-            print("There are skills in this game")
-            time.sleep(2)
-            print("As well as stats")
-            time.sleep(2)
-            print("We use turn based combat")
-            time.sleep(2)
-            print("As it is civilized")
+            print("Where we use stats")
             time.sleep(1)
             print("Here I'll show you your stats")
             time.sleep(2)
@@ -160,8 +164,20 @@ while False:
             print("If you didn't use some of those points")
             time.sleep(1)
             print("They are gone forever")
-            print("see")
+            print("See")
             stats(0)
             print("So that would suck if you didn't spend some of those")
             time.sleep(2)
             print("Now its time for combat!!")
+            print("In combat if you attack and your opponent does the same damage will be delt")
+            print("Your strength subtracted by the opponents strength")
+            print("If your opponent has higher strength you will take damage")
+            print("If you attack and your opponent blocks damage will be delt your resistance - opponents strength")
+            print("This works the same if you block and your opponent attacks")
+            print("If you dodge and are successful no damage will be taken")
+            print("Dodging works with a random number combined with your agility against a random number against opponents agility")
+            print("If a dodge and a block both happen or a dodge and a dodge or a block and a block")
+            print("Nothing happens")
+            print("You could always try to talk to your opponent but you'll need to speak their language")
+            print("try it out!")
+            combat("Bill the Pill", 3, 2, 0, 1, "english", 100)

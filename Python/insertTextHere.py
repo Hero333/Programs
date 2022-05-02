@@ -9,7 +9,7 @@ resistance = 0
 magic = 0
 agility = 0
 language = 0
-hitPoints = 15
+hitPoints = 100
 
 def mChoice():
     choice = random.randrange(1,3)
@@ -32,15 +32,17 @@ def combat(mName, mStrength, mResistance, mMagic, mAgility, mLanguage, mHitPoint
     print("Name: " + str(mName) + "\nStrength: " + str(mStrength) + "\nResistance: " + str(mResistance) + "\nMagic: " + str(mMagic) + "\nAgility: " + str(mAgility) + "\nLanguage: " + str(mLanguage))
 
     while hitPoints > 0:
-            print(str(mName) + "has " + str(mHitPoints) + " remaining")
+            print(str(mName) + " has " + str(mHitPoints) + " remaining")
             print("You have " + str(hitPoints) + " remaining")
             playerCombatChoice = input("What would you like to do\n1: Attack\n2: Block\n3: Dodge\n4: Talk\nYou: ")
+            #Combat will not assign damage
             if playerCombatChoice == 1:
                 #if mChoice() == "attack":
                 if mStrength > strength:
-                    hitPoints = hitPoints - (mStrength - strength)
+                    hitPoints = hitPoints - (mStrength- resistance)
+
                 if mStrength < strength:
-                    mHitPoints = mHitPoints - (strength - mStrength)
+                    mHitPoints = mHitPoints - (strength - mResistance)
 
 
 
@@ -170,7 +172,7 @@ while True:
             print("Now its time for combat!!")
             print("In combat if you attack and your opponent does the same damage will be delt")
             print("Your strength subtracted by the opponents strength")
-            print("If your opponent has higher strength you will take damage")
+            print("If your opponent has higher strength you will take damage equal to their strength subtracted by your resistance")
             print("If you attack and your opponent blocks damage will be delt your resistance - opponents strength")
             print("This works the same if you block and your opponent attacks")
             print("If you dodge and are successful no damage will be taken")

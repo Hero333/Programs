@@ -1,15 +1,16 @@
 #! usr/bin/env python
 # Format may look weird as it is programed in an online IDE
+import random
 
 checkPoint = 0
 magicUnlock = "False"
 
-strength = 0
-resistance = 0
+strength = 3
+resistance = 3
 magic = 0
-agility = 0
-language = 0
-hitPoints = 100
+agility = 3
+language = 1
+hitPoints = 15
 
 def mChoice():
     choice = random.randrange(1,3)
@@ -35,14 +36,15 @@ def combat(mName, mStrength, mResistance, mMagic, mAgility, mLanguage, mHitPoint
             print(str(mName) + " has " + str(mHitPoints) + " remaining")
             print("You have " + str(hitPoints) + " remaining")
             playerCombatChoice = input("What would you like to do\n1: Attack\n2: Block\n3: Dodge\n4: Talk\nYou: ")
-            #Combat will not assign damage
-            if playerCombatChoice == 1:
+            if playerCombatChoice == "1":
                 #if mChoice() == "attack":
-                if mStrength > strength:
+                if (mStrength + random.randrange(1, 10)) > (strength + random.randrange(1, 10)):
                     hitPoints = hitPoints - (mStrength- resistance)
+                    print("You took damage")
 
-                if mStrength < strength:
+                else:
                     mHitPoints = mHitPoints - (strength - mResistance)
+                    print(mName + " took damage")
 
 
 
@@ -61,9 +63,9 @@ def stats(points):
         print("Here are your stats: ")
         print("\n-------------------")
         print("Strength : " + str(strength) + "\nResistance : " + str(resistance) + "\n##### : " + str(
-            magic) + "\nagility: " + str(agility) + "\nlanguage: " +
+            magic) + "\nAgility: " + str(agility) + "\nLanguage: " +
               str(language))
-        print("-------------------\n")
+        print("\n-------------------\n")
         pointsUsable = points - pointsSpent
         print("You have " + str(pointsUsable) + " points")
         spend = input(
@@ -113,13 +115,13 @@ def stats(points):
             break
 stats(1)
 
-combat("test", 5, 5, 0, 1, "english", 100)
+combat("test", 5, 5, 0, 1, "english", 15)
 
 while True:
     import time, random
 
     if checkPoint == 0:
-        print("Hello and welcome to [insert text here]")
+        print("Hello and welcome to [Insert Text Here]")
         print("Unknown: Hello, Player")
         print("Unknown: To play this game you will be given choices you will pick \n using numbers")
         checkControls = input("Unknown: Do you under stand? \n 1: Yes\n 2: No\nYou: ")
@@ -149,36 +151,36 @@ while True:
 
         checkReady = input("Unknown: Are you ready? \n 1: Yes\n 2: Yes\n You: ")
 
-        print("I suppose I should tell you what [insert text here] is")
+        print("Unknown: I suppose I should tell you what [insert text here] is")
         checkPoint = checkPoint + 1
         if checkPoint == 1:
-            print("[insert text here] is a game")
+            print("Unknown: [insert text here] is a game")
             time.sleep(2)
-            print("A game in which you will find all you could want")
+            print("Unknown: A game in which you will find all you could want")
             time.sleep(2)
-            print("Where we use stats")
+            print("Unknown: Where we use stats")
             time.sleep(1)
-            print("Here I'll show you your stats")
+            print("Unknown: Here I'll show you your stats")
             time.sleep(2)
-            print("I'll even give you some points")
+            print("Unknown: I'll even give you some points")
             stats(4)
-            print("If you didn't use some of those points")
+            print("Unknown: If you didn't use some of those points")
             time.sleep(1)
-            print("They are gone forever")
-            print("See")
+            print("Unknown: They are gone forever")
+            print("Unknown: See")
             stats(0)
-            print("So that would suck if you didn't spend some of those")
+            print("Unknown: So that would suck if you didn't spend some of those")
             time.sleep(2)
-            print("Now its time for combat!!")
-            print("In combat if you attack and your opponent does the same damage will be delt")
-            print("Your strength subtracted by the opponents strength")
-            print("If your opponent has higher strength you will take damage equal to their strength subtracted by your resistance")
-            print("If you attack and your opponent blocks damage will be delt your resistance - opponents strength")
-            print("This works the same if you block and your opponent attacks")
-            print("If you dodge and are successful no damage will be taken")
-            print("Dodging works with a random number combined with your agility against a random number against opponents agility")
-            print("If a dodge and a block both happen or a dodge and a dodge or a block and a block")
-            print("Nothing happens")
-            print("You could always try to talk to your opponent but you'll need to speak their language")
-            print("try it out!")
+            print("Unknown: Now its time for combat!!")
+            print("Unknown: In combat if you attack and your opponent does the same damage will be delt")
+            print("Unknown: Your strength subtracted by the opponents strength")
+            print("Unknown: If your opponent has higher strength you will take damage equal to their strength subtracted by your resistance")
+            print("Unknown: If you attack and your opponent blocks damage will be delt your resistance - opponents strength")
+            print("Unknown: This works the same if you block and your opponent attacks")
+            print("Unknown: If you dodge and are successful no damage will be taken")
+            print("Unknown: Dodging works with a random number combined with your agility against a random number against opponents agility")
+            print("Unknown: If a dodge and a block both happen or a dodge and a dodge or a block and a block")
+            print("Unknown: Nothing happens")
+            print("Unknown: You could always try to talk to your opponent but you'll need to speak their language")
+            print("Unknown: try it out!")
             combat("Bill the Pill", 3, 2, 0, 1, "english", 100)

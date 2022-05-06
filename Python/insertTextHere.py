@@ -13,6 +13,8 @@ language = 1
 hitPoints = 15
 
 def mChoice():
+    # This will be better at some point taking heaths strengths etc. 
+    # However for now it is just a random choice. 
     choice = random.randrange(1,3)
     if choice == 1:
         return "attack"
@@ -74,6 +76,7 @@ def stats(points):
         spend = input(
             "What would you like to add a point to?\n1: Strength\n2: Resistance \n3: #####\n4: agility\n5: language\n6: Leave\nYou: ")
         # Im not going to do it here, (yet) but i recommend that you turn this from checking for a string to checking for a number
+        # spend is a string as that is what it gets from input from user I could convert with int(varName) however I don't think its worth it
         if spend == "1":
             if pointsUsable >= 1:
                 strength = strength + 1
@@ -99,7 +102,7 @@ def stats(points):
             else:
                 time.sleep(1)
                 print("⠀")
-                print("System Error!\n")
+                print("Error!\n")
 
         if spend == "4":
             if pointsUsable >= 1:
@@ -117,50 +120,52 @@ def stats(points):
                 break
         if spend == "6":
             break
-stats(1)
-
-combat("test", 5, 5, 0, 1, "english", 15)
 
 while True:
     import time, random
 
     if checkPoint == 0:
-
+        print("System: ")
         print("Hello and welcome to [Insert Text Here]")
-        print("Unknown: Hello, Player")
-        print("Unknown: To play this game you will be given choices you will pick \n using numbers")
+        print("Unknown: ")
+        print("Hello, Player")
+        print("To play this game you will be given choices you will pick \n using numbers")
         checkControls = input("Unknown: Do you under stand? \n 1: Yes\n 2: No\nYou: ")
 
         if checkControls == "2":
-            print("Unknown: You just used them...")
+            print("Unknown: ")
+            print("You just used them...")
             time.sleep(2)
-            print("Unknown: So you must understand...")
+            print("So you must understand...")
             time.sleep(2)
             checkLieCC = input("Were you lying? \n 1: Yes\n 2: No\nYou: ")
             if checkLieCC == "1":
                 askLieCC = input("Unknown: Why would you do that?\n 1: I felt like it\n 2: To see if I could \nYou: ")
                 if askLieCC == "2" or "1":
-                    print("Unknown: Selfish whims!")
-                    print("Unknown: However we can begin...")
+                    print("Unknown: ")
+                    print("Selfish whims!")
+                    print("However we can begin...")
 
             if checkLieCC == "2":
-                print("Unknown: YOU HAVE TO BE!!!")
+                print("Unknown: ")
+                print("YOU HAVE TO BE!")
                 time.sleep(2)
-                print("Unknown: Sorry I was over-reacting.")
-                print("Unknown: I'm just going to assume you understand.")
-                print("Unknown: Let us begin...")
+                print("Sorry I was over-reacting.")
+                print("I'm just going to assume you understand.")
+                print("Let us begin...")
 
         if checkControls == "1":
-            print("Unknown: Good.")
-            print("Unknown: Then we can begin...")
+            print("Unknown: ")
+            print("Good.")
+            print("Then we can begin...")
 
         checkReady = input("Unknown: Are you ready?\n 1: Yes\n 2: Yes\nYou: ")
 
         print("Unknown: ")
-        print("I suppose I should tell you what [insert text here] is.")
+        print("I suppose I should tell you what [Insert Text Here] is.")
         checkPoint = checkPoint + 1
         if checkPoint == 1:
-            print("[insert text here] is a game!")
+            print("[Insert Text Here] is a game!")
             time.sleep(2)
             print("A game in which you will find everything you have ever wanted.")
             time.sleep(2)

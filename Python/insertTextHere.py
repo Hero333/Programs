@@ -1,13 +1,16 @@
 #! usr/bin/env python
 # Format may look weird as it is programed in an online IDE
+
+
+#imports
 import random
 
+#creating var for possible check point system
 checkPoint = 0
-magicUnlock = "False"
 
+#setting up default stats for player
 strength = 3
 resistance = 3
-magic = 0
 agility = 3
 language = 1
 hitPoints = 15
@@ -23,18 +26,19 @@ def mChoice():
     if choice == 3:
         return "dodge"
 
-def combat(mName, mStrength, mResistance, mMagic, mAgility, mLanguage, mHitPoints):
+def combat(mName, mStrength, mResistance, mAgility, mLanguage, mHitPoints):
 
+    #using global so function knows to use global vars 
     global strength
     global resistance
-    global magic
     global agility
     global language
     global hitPoints
 
-    print("Name: " + str(mName) + "\nStrength: " + str(mStrength) + "\nResistance: " + str(mResistance) + "\nMagic: " + str(mMagic) + "\nAgility: " + str(mAgility) + "\nLanguage: " + str(mLanguage))
+    print("Name: " + str(mName) + "\nStrength: " + str(mStrength) + "\nResistance: " + str(mResistance) +  "\nAgility: " + str(mAgility) + "\nLanguage: " + str(mLanguage))
 
-    while hitPoints > 0:
+    #this is to be the main combat loop
+    while hitPoints > 0 && mHitPoints > 0:
             print(str(mName) + " has " + str(mHitPoints) + " remaining")
             print("You have " + str(hitPoints) + " remaining")
             playerCombatChoice = input("What would you like to do\n1: Attack\n2: Block\n3: Dodge\n4: Talk\nYou: ")
@@ -54,7 +58,6 @@ def stats(points):
 
     global strength
     global resistance
-    global magic
     global agility
     global language
     global hitPoints
@@ -67,14 +70,12 @@ def stats(points):
         print("System: ")
         print("Here are your stats: ")
         print("\n-------------------")
-        print("Strength : " + str(strength) + "\nResistance : " + str(resistance) + "\n##### : " + str(
-            magic) + "\nAgility: " + str(agility) + "\nLanguage: " +
-              str(language))
+        print("Strength : " + str(strength) + "\nResistance : " + str(resistance) + "\nAgility: " + str(agility) + "\nLanguage: " + str(language) + "\n")
         print("\n-------------------\n")
         pointsUsable = points - pointsSpent
         print("You have " + str(pointsUsable) + " points.")
         spend = input(
-            "What would you like to add a point to?\n1: Strength\n2: Resistance \n3: #####\n4: agility\n5: language\n6: Leave\nYou: ")
+            "What would you like to add a point to?\n1: Strength\n2: Resistance \n3: agility\n4: language\n5: Leave\nYou: ")
         # Im not going to do it here, (yet) but i recommend that you turn this from checking for a string to checking for a number
         # spend is a string as that is what it gets from input from user I could convert with int(varName) however I don't think its worth it
         if spend == "1":
@@ -91,34 +92,22 @@ def stats(points):
             else:
                 print("You do not have enough points!")
                 break
-        if spend == "3":
-            if magicUnlock == "True":
-                if pointsUsable >= 1:
-                    magic = magic + 1
-                    pointsSpent = pointsSpent + 1
-                else:
-                    print("You do not have enough points!")
-                    break
-            else:
-                time.sleep(1)
-                print("⠀")
-                print("Error!\n")
 
-        if spend == "4":
+        if spend == "3":
             if pointsUsable >= 1:
                 agility = agility + 1
                 pointsSpent = pointsSpent + 1
             else:
                 print("You do not have enough points!")
                 break
-        if spend == "5":
+        if spend == "4":
             if pointsUsable >= 1:
                 language = language + 1
                 pointsSpent = pointsSpent + 1
             else:
                 print("You do not have enough points!")
                 break
-        if spend == "6":
+        if spend == "5":
             break
 
 while True:
@@ -173,11 +162,12 @@ while True:
             time.sleep(1)
             print("I'll even give you some points for it.")
             stats(4)
+            print("Unknown: ")
             print("If you don't spend any of the points,")
             time.sleep(1)
             print("They are gone forever!")
             time.sleep(2)
-            print("Spend them now, or regret it forever!")
+            print("Spend them when you get them, or regret it forever!")
             stats(0)
             print("Well, hopefully you spent them.")
             time.sleep(2)
@@ -194,4 +184,4 @@ while True:
             print("You could always try to talk to your opponent but you'll need to speak their language.")
             print("Try it out!")
 
-            combat("Bill the Pill", 3, 2, 0, 1, "english", 100)
+            combat("Bill the Pill", 3, 2, 1, "english", 100)
